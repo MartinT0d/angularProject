@@ -1,0 +1,65 @@
+$headingBgColor:rgba(34, 37, 44, 0.1);
+$headingColor:#22252C;
+$actionsBtn:rgba(145, 39, 25, 0.76);
+$actionsBtnHover: #5C2018;
+$addFormbgColor:rgba(34, 37, 44, 0.055);
+
+.head{
+    background-color: $headingBgColor;
+    color: $headingColor;
+    h3{
+        padding-top: 7px ;
+    }
+}
+
+table{
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.actions {
+    padding: 25px;
+    button{
+        background-color:$actionsBtn;
+        color: #fff;
+        &:hover{
+            background-color: $actionsBtnHover;
+        }
+    }
+}
+
+.addButton{
+    background-color: $actionsBtn;
+    color: #fff;
+    &:hover{
+        background-color:$actionsBtnHover;
+    }
+}
+
+#categoryForm{
+    margin-top: 50px;
+}
+
+#category{
+    border-radius: 3px;
+    background-color:$addFormbgColor;
+    color: $headingColor;
+    margin-bottom: 30px;
+    button{
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+}
+
+.delete-btn{
+    margin-left: 5px;
+}
+
+#updateCategory{
+    padding-bottom: 10px;
+    background-color: $addFormbgColor;
+    button{
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+}

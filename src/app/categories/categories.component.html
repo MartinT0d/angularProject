@@ -1,0 +1,66 @@
+<app-home>
+  <div class="col-md-12">
+    <div class="col-md-12">
+      <div class="heading container-fluid">
+        <div class="row head text-center">
+          <div class="col-md-6 col-sm-12">
+            <h3 class="heading-title">Categories</h3>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="actions">
+              <button class="btn" (click)="addNewCategory()">Add New</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="col-lg-5 offset-lg-1 col-md-6 col-sm-12 col-xs-12 text-center" id="addForm">
+        <form #categoryData="ngForm" id="category" (ngSubmit)="addCategory(categoryData.value)" *ngIf="openForm">
+          <h3>Add New Category</h3>
+          <input class="form-control standalone" type="text" name="name" ngModel>
+          <label for="">Description</label>
+         <textarea class="form-control" name="" id="description" name="description" ngModel rows="5"></textarea> 
+          <button type="submit" class="btn addButton">Add</button>
+          <button class="btn btn-secondary" (click)="closeForm()">Cancel</button>
+        </form>
+      </div>
+      <div class="col-lg-5 offset-lg-1 col-md-6  col-sm-12 col-xs-10" id="categoryForm">
+        <form class="form-inline">
+          <input class="form-control" type="text" name="searchName" (input)="checkInput()" placeholder="Search By Name"
+            [(ngModel)]="searchByName">
+          <button class="btn btn-outline-primary" (click)="searchFunc(categories)"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-6">
+        <form #updateUserData="ngForm" id="updateCategory" name="updateCategory" (ngSubmit)="updateCategory(oneCategory.id)" *ngIf="openUpdateForm">
+            <label for="">Name</label>
+            <input class="form-control" type="text" name="name" id="catName" placeholder="catName" [(ngModel)]="oneCategory.name">
+            <button type="submit" class="btn btn-success">Update category</button>
+            <button class="btn btn-primary" (click)="closeUpdateForm()">Cancel</button>
+          </form>
+    </div>
+    <div class="col-lg-10 offset-lg-1 col-md-12 col-xs-12">
+      <table class="table table-bordered text-center table-striped">
+        <thead class="text-center table-dark">
+          <tr>
+            <th scope="col" class="text-center">Name</th>
+            <th scope="col" class="text-center">Parent Category</th>
+            <th scope="col" class="text-center">Description</th>
+            <th scope="col" class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let category of categories">
+                <td>{{category.name}}</td>
+                <td>{{category.parentCategory}}</td>
+                <td>{{category.description}}</td>
+                <td><button class="btn btn-primary" (click)="getCategoryData(category.id,category)">Edit</button> <button
+                    class="btn btn-danger" (click)="deleteCategory(category.id)">Delete</button></td>
+              </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</app-home>
